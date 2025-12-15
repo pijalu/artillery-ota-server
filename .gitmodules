@@ -1,0 +1,3 @@
+[submodule "artillery-m1-debs"]
+	path = artillery-m1-debs
+	url = https://github.com/pijalu/artillery-m1-debs

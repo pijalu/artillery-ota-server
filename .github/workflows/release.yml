@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.25'
+        cache: true
+
+    - name: Generate embedded files
+      run: |
+        go run tools/generate-embed/main.go
+
+    - name: Build binaries
+      run: |
+        mkdir -p bin
+        # Build Linux AMD64
+        GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags "-s -w -extldflags -static" -o bin/ota-server-linux-amd64 .
+        # Build Linux ARM64  
+        GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -a -ldflags "-s -w -extldflags -static" -o bin/ota-server-linux-arm64 .
+        # Build macOS AMD64
+        GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags "-s -w -extldflags -static" -o bin/ota-server-darwin-amd64 .
+        # Build macOS ARM64
+        GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -a -ldflags "-s -w -extldflags -static" -o bin/ota-server-darwin-arm64 .
+        # Build Windows AMD64
+        GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags "-s -w -extldflags -static" -o bin/ota-server-windows-amd64.exe .
+        
+    - name: Verify builds
+      run: ls -la bin/
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          bin/ota-server-linux-amd64
+          bin/ota-server-linux-arm64
+          bin/ota-server-darwin-amd64
+          bin/ota-server-darwin-arm64
+          bin/ota-server-windows-amd64.exe
+        draft: false
+        prerelease: false
+        generate_release_notes: true

@@ -1,0 +1,50 @@
+{
+  "title": "Firmware Download Service",
+  "mappings": [
+    {
+      "customerType": "Yuntu_m1",
+      "firmwareType": "Yuntu_m1_ALGO_APP",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_ALGO_APP-403.deb",
+      "embed": true,
+      "description": "Yuntu_m1 ALGO_APP OTA Internal Testing Package",
+      "versionCode": 403,
+      "versionName": "4.00.03.00"
+    },
+    {
+      "customerType": "Yuntu_m1",
+      "firmwareType": "Yuntu_m1_client_deb",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_client_deb-129.deb",
+      "embed": true,
+      "description": "Yuntu_m1 client_deb OTA Internal Testing Package",
+      "versionCode": 129,
+      "versionName": "1.00.12.00"
+    },
+    {
+      "customerType": "Yuntu_m1",
+      "firmwareType": "Yuntu_m1_s1_client_deb",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_s1_client_deb-200.deb",
+      "embed": true,
+      "description": "Yuntu_m1 s1_client_deb OTA Internal Testing Package",
+      "versionCode": 200,
+      "versionName": "2.00.10.00"
+    },
+    {
+      "customerType": "Yuntu_m1",
+      "firmwareType": "Yuntu_m1_s1_test",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_s1_test-201.deb",
+      "embed": true,
+      "description": "Yuntu_m1 s1_test OTA Internal Testing Package",
+      "versionCode": 201,
+      "versionName": "2.00.10.09"
+    },
+    {
+      "customerType": "Yuntu_m1",
+      "firmwareType": "Yuntu_m1_test",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_test-129.deb",
+      "embed": true,
+      "description": "Yuntu_m1 test OTA Internal Testing Package",
+      "versionCode": 129,
+      "versionName": "1.00.12.00"
+    }
+  ]
+}
