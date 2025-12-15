@@ -2,8 +2,12 @@
 
 .PHONY: build build-embed build-linux-amd64 build-linux-arm64 build-all clean test run generate
 
+# Initialize git submodules
+init-submodules:
+	test -d artillery-m1-debs || (git submodule init && git submodule update --recursive)
+
 # Generate embedded files from config
-generate:
+generate: init-submodules
 	go run tools/generate-embed/main.go
 
 # Build the regular version
@@ -30,7 +34,7 @@ build-all: generate
 	GOOS=windows GOARCH=amd64 go build -o bin/ota-server-windows-amd64.exe .
 
 # Build with go generate (for development)
-build-dev:
+build-dev: init-submodules
 	go generate
 	go build -o bin/ota-server .
 

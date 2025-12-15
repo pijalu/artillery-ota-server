@@ -15,6 +15,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Initialize and update submodules
+      run: |
+        git submodule init
+        git submodule update --recursive
+
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
