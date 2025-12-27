@@ -4,11 +4,11 @@
     {
       "customerType": "Yuntu_m1",
       "firmwareType": "Yuntu_m1_ALGO_APP",
-      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_ALGO_APP-403.deb",
+      "filePath": "./artillery-m1-debs/Yuntu_m1-Yuntu_m1_ALGO_APP-405.deb",
       "embed": true,
       "description": "Yuntu_m1 ALGO_APP OTA Internal Testing Package",
-      "versionCode": 403,
-      "versionName": "4.0.3"
+      "versionCode": 405,
+      "versionName": "4.0.5"
     },
     {
       "customerType": "Yuntu_m1",
